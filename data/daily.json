@@ -1,0 +1,974 @@
+[
+  {
+    "date": "2025-10-28",
+    "readinessScore": 85,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.72,
+    "steps": 3882,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-10-29",
+    "readinessScore": 88,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.74,
+    "steps": 2569,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-10-30",
+    "readinessScore": 90,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.8,
+    "steps": 1427,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-10-31",
+    "readinessScore": null,
+    "resilienceScore": null,
+    "resilienceLevel": null,
+    "hrvBalance": null,
+    "steps": 4147,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-01",
+    "readinessScore": null,
+    "resilienceScore": null,
+    "resilienceLevel": null,
+    "hrvBalance": null,
+    "steps": 3502,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-02",
+    "readinessScore": 92,
+    "resilienceScore": 5,
+    "resilienceLevel": "exceptional",
+    "hrvBalance": 0.86,
+    "steps": 7949,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-03",
+    "readinessScore": 87,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.88,
+    "steps": 9889,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-04",
+    "readinessScore": 90,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.84,
+    "steps": 7432,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-05",
+    "readinessScore": 85,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.82,
+    "steps": 5884,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-06",
+    "readinessScore": 89,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.8,
+    "steps": 8623,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-07",
+    "readinessScore": 80,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.76,
+    "steps": 5993,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-08",
+    "readinessScore": 92,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.76,
+    "steps": 13007,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-09",
+    "readinessScore": 81,
+    "resilienceScore": 5,
+    "resilienceLevel": "exceptional",
+    "hrvBalance": 0.74,
+    "steps": 4937,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-10",
+    "readinessScore": 80,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.72,
+    "steps": 3928,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-11",
+    "readinessScore": 90,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.74,
+    "steps": 3169,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-12",
+    "readinessScore": 63,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.74,
+    "steps": 5274,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-13",
+    "readinessScore": 79,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.64,
+    "steps": 2721,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-14",
+    "readinessScore": null,
+    "resilienceScore": null,
+    "resilienceLevel": null,
+    "hrvBalance": null,
+    "steps": 1453,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-15",
+    "readinessScore": 77,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.48,
+    "steps": 5342,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-16",
+    "readinessScore": 80,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.74,
+    "steps": 3546,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-17",
+    "readinessScore": 81,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.52,
+    "steps": 6253,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-18",
+    "readinessScore": 84,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.48,
+    "steps": 3347,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-19",
+    "readinessScore": 74,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.48,
+    "steps": 4580,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-20",
+    "readinessScore": null,
+    "resilienceScore": null,
+    "resilienceLevel": null,
+    "hrvBalance": null,
+    "steps": 234,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-21",
+    "readinessScore": 70,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.38,
+    "steps": 1931,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-22",
+    "readinessScore": 82,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.54,
+    "steps": 8695,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2025-11-23",
+    "readinessScore": 83,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.44,
+    "steps": 5847,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-24",
+    "readinessScore": 61,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.44,
+    "steps": 7505,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-25",
+    "readinessScore": 84,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.6,
+    "steps": 7695,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-26",
+    "readinessScore": 76,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.52,
+    "steps": 5164,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-27",
+    "readinessScore": 83,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.74,
+    "steps": 5642,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-28",
+    "readinessScore": 74,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.72,
+    "steps": 6579,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-29",
+    "readinessScore": 76,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.76,
+    "steps": 8235,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-11-30",
+    "readinessScore": 71,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.78,
+    "steps": 5565,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-01",
+    "readinessScore": 84,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.82,
+    "steps": 8745,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-02",
+    "readinessScore": 70,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.78,
+    "steps": 2971,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-03",
+    "readinessScore": 77,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.84,
+    "steps": 5042,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-04",
+    "readinessScore": 67,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.66,
+    "steps": 1947,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-05",
+    "readinessScore": 86,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.8,
+    "steps": 4791,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-06",
+    "readinessScore": 69,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.46,
+    "steps": 6466,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-07",
+    "readinessScore": 85,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.58,
+    "steps": 3886,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-08",
+    "readinessScore": 81,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.38,
+    "steps": 9388,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-09",
+    "readinessScore": 81,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.24,
+    "steps": 5526,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-10",
+    "readinessScore": 80,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.26,
+    "steps": 2534,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-11",
+    "readinessScore": 82,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.04,
+    "steps": 1147,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-12",
+    "readinessScore": 85,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.12,
+    "steps": 3936,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-13",
+    "readinessScore": 67,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.2,
+    "steps": 8297,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-14",
+    "readinessScore": 71,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.04,
+    "steps": 4680,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-15",
+    "readinessScore": 82,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.02,
+    "steps": 2821,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-16",
+    "readinessScore": null,
+    "resilienceScore": null,
+    "resilienceLevel": null,
+    "hrvBalance": null,
+    "steps": 1867,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-17",
+    "readinessScore": 78,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.18,
+    "steps": 5299,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-18",
+    "readinessScore": 83,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.14,
+    "steps": 4778,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-19",
+    "readinessScore": 83,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.04,
+    "steps": 5236,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-20",
+    "readinessScore": 52,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.06,
+    "steps": 5043,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-21",
+    "readinessScore": 86,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.28,
+    "steps": 6911,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-22",
+    "readinessScore": 72,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.26,
+    "steps": 8780,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-23",
+    "readinessScore": 66,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.26,
+    "steps": 3195,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-24",
+    "readinessScore": 80,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.48,
+    "steps": 6479,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-25",
+    "readinessScore": 58,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": 0.44,
+    "steps": 5764,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-26",
+    "readinessScore": 66,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": 0.62,
+    "steps": 7037,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-27",
+    "readinessScore": 73,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": 0.62,
+    "steps": 9322,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-28",
+    "readinessScore": 79,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.76,
+    "steps": 9634,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-29",
+    "readinessScore": 84,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.74,
+    "steps": 7688,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-30",
+    "readinessScore": 74,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.7,
+    "steps": 11484,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2025-12-31",
+    "readinessScore": 79,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.8,
+    "steps": 12219,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-01",
+    "readinessScore": 73,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.7,
+    "steps": 6009,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-02",
+    "readinessScore": 71,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.54,
+    "steps": 11275,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-03",
+    "readinessScore": 75,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.52,
+    "steps": 5663,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-04",
+    "readinessScore": 59,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.24,
+    "steps": 4242,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-05",
+    "readinessScore": 79,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.16,
+    "steps": 8656,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-06",
+    "readinessScore": 75,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.08,
+    "steps": 5560,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-07",
+    "readinessScore": 76,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.02,
+    "steps": 8635,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-08",
+    "readinessScore": 69,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.08,
+    "steps": 5469,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-09",
+    "readinessScore": 81,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.14,
+    "steps": 11258,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-10",
+    "readinessScore": 64,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.28,
+    "steps": 6364,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-11",
+    "readinessScore": 81,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.12,
+    "steps": 17003,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-12",
+    "readinessScore": 70,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.28,
+    "steps": 4773,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-13",
+    "readinessScore": 75,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.14,
+    "steps": 3608,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-14",
+    "readinessScore": 70,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": -0.06,
+    "steps": 2635,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-15",
+    "readinessScore": null,
+    "resilienceScore": null,
+    "resilienceLevel": null,
+    "hrvBalance": null,
+    "steps": 8801,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-16",
+    "readinessScore": 70,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": 0,
+    "steps": 3602,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-17",
+    "readinessScore": 66,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": -0.2,
+    "steps": 9949,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-18",
+    "readinessScore": 82,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": 0.28,
+    "steps": 10019,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-19",
+    "readinessScore": 63,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": -0.14,
+    "steps": 8268,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-20",
+    "readinessScore": 85,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": 0.38,
+    "steps": 8245,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-21",
+    "readinessScore": 85,
+    "resilienceScore": 2,
+    "resilienceLevel": "adequate",
+    "hrvBalance": 0.3,
+    "steps": 7999,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-22",
+    "readinessScore": 85,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.42,
+    "steps": 2626,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-23",
+    "readinessScore": 86,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.52,
+    "steps": 6334,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-24",
+    "readinessScore": 85,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.72,
+    "steps": 7308,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-25",
+    "readinessScore": null,
+    "resilienceScore": null,
+    "resilienceLevel": null,
+    "hrvBalance": null,
+    "steps": 7755,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-26",
+    "readinessScore": 85,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.7,
+    "steps": 5540,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-27",
+    "readinessScore": 81,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.7,
+    "steps": 4957,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-28",
+    "readinessScore": 86,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.56,
+    "steps": 6435,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-29",
+    "readinessScore": 85,
+    "resilienceScore": 3,
+    "resilienceLevel": "solid",
+    "hrvBalance": 0.68,
+    "steps": 8993,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-01-30",
+    "readinessScore": 87,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.58,
+    "steps": 9568,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-01-31",
+    "readinessScore": 83,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.64,
+    "steps": 7704,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-02-01",
+    "readinessScore": 84,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.66,
+    "steps": 9407,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-02-02",
+    "readinessScore": 84,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.68,
+    "steps": 8874,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-02-03",
+    "readinessScore": 55,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.72,
+    "steps": 8350,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-02-04",
+    "readinessScore": 78,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.68,
+    "steps": 8741,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-02-05",
+    "readinessScore": 74,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.72,
+    "steps": 8441,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-02-06",
+    "readinessScore": 79,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.72,
+    "steps": 20950,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-02-07",
+    "readinessScore": 67,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.72,
+    "steps": 3641,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-02-08",
+    "readinessScore": 85,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.72,
+    "steps": 11232,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-02-09",
+    "readinessScore": 76,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.78,
+    "steps": 2654,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-02-10",
+    "readinessScore": 85,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.78,
+    "steps": 13283,
+    "isStrengthDay": true
+  },
+  {
+    "date": "2026-02-11",
+    "readinessScore": 85,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.82,
+    "steps": 11611,
+    "isStrengthDay": false
+  },
+  {
+    "date": "2026-02-12",
+    "readinessScore": 83,
+    "resilienceScore": 4,
+    "resilienceLevel": "strong",
+    "hrvBalance": 0.84,
+    "steps": null,
+    "isStrengthDay": false
+  }
+]
