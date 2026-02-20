@@ -1,6 +1,6 @@
 /**
  * Oura API fetch layer — build step.
- * Fetches daily_resilience, daily_readiness, workout, daily_activity
+ * Fetches daily_resilience, daily_readiness, workout, daily_activity, sleep
  * for 2025-10-28 to 2026-02-12, merges by date, writes data/daily.json.
  * Run: npm run fetch (requires OURA_TOKEN or OURA_PAT in .env)
  */
@@ -86,17 +86,18 @@ async function fetchPaginated(endpoint, params = {}) {
 }
 
 /**
- * Fetch all four endpoints in parallel.
+ * Fetch all five endpoints in parallel.
  */
 async function fetchAll() {
-  const [resilience, readiness, workouts, activity] = await Promise.all([
+  const [resilience, readiness, workouts, activity, sleep] = await Promise.all([
     fetchPaginated("daily_resilience"),
     fetchPaginated("daily_readiness"),
     fetchPaginated("workout"),
     fetchPaginated("daily_activity"),
+    fetchPaginated("sleep"),
   ]);
 
-  return { resilience, readiness, workouts, activity };
+  return { resilience, readiness, workouts, activity, sleep };
 }
 
 /**
@@ -109,6 +110,8 @@ function buildStrengthDates(workouts) {
     const activity = (w.activity || "").toLowerCase();
     if (
       activity.includes("strength") ||
+      activity.includes("weight") ||
+      activity.includes("resistance") ||
       activity === "weights" ||
       activity === "strength_training"
     ) {
@@ -127,9 +130,17 @@ function remapHrvBalance(val) {
 }
 
 /**
+ * Convert deep_sleep_duration (seconds) to minutes. Sleep endpoint returns seconds.
+ */
+function toDeepSleepMinutes(val) {
+  if (val == null || typeof val !== "number") return null;
+  return Math.round(val / 60);
+}
+
+/**
  * Merge all endpoints into a single array of day objects.
  */
-function mergeDailyData({ resilience, readiness, workouts, activity }) {
+function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
   const strengthDates = buildStrengthDates(workouts);
 
   const byDate = new Map();
@@ -145,6 +156,7 @@ function mergeDailyData({ resilience, readiness, workouts, activity }) {
       resilienceLevel: level || null,
       hrvBalance: null,
       steps: null,
+      deepSleepMinutes: null,
       isStrengthDay: strengthDates.has(day),
     });
   }
@@ -159,6 +171,7 @@ function mergeDailyData({ resilience, readiness, workouts, activity }) {
       resilienceLevel: null,
       hrvBalance: null,
       steps: null,
+      deepSleepMinutes: null,
       isStrengthDay: strengthDates.has(day),
     };
     existing.readinessScore = r.score ?? null;
@@ -176,9 +189,30 @@ function mergeDailyData({ resilience, readiness, workouts, activity }) {
       resilienceLevel: null,
       hrvBalance: null,
       steps: null,
+      deepSleepMinutes: null,
       isStrengthDay: strengthDates.has(day),
     };
     existing.steps = a.steps ?? null;
+    byDate.set(day, existing);
+  }
+
+  for (const s of sleep || []) {
+    const day = s.day;
+    if (!day) continue;
+    const existing = byDate.get(day) || {
+      date: day,
+      readinessScore: null,
+      resilienceScore: null,
+      resilienceLevel: null,
+      hrvBalance: null,
+      steps: null,
+      deepSleepMinutes: null,
+      isStrengthDay: strengthDates.has(day),
+    };
+    const mins = toDeepSleepMinutes(s.deep_sleep_duration);
+    existing.deepSleepMinutes = existing.deepSleepMinutes != null && mins != null
+      ? existing.deepSleepMinutes + mins
+      : existing.deepSleepMinutes ?? mins;
     byDate.set(day, existing);
   }
 
@@ -192,14 +226,19 @@ function mergeDailyData({ resilience, readiness, workouts, activity }) {
 async function main() {
   await validateToken();
 
-  const { resilience, readiness, workouts, activity } = await fetchAll();
+  const { resilience, readiness, workouts, activity, sleep } = await fetchAll();
 
   console.log("Raw response counts:", {
     resilience: resilience.length,
     readiness: readiness.length,
     workouts: workouts.length,
     activity: activity.length,
+    sleep: sleep.length,
   });
+
+  if (sleep.length > 0) {
+    console.log("First sleep object (deep_sleep_duration in seconds):", JSON.stringify(sleep[0], null, 2));
+  }
 
   if (resilience.length === 0 && readiness.length === 0 && activity.length === 0) {
     console.warn("\nAll endpoints returned 0. Running diagnostic: fetching daily_readiness without date params...");
@@ -223,7 +262,7 @@ async function main() {
   console.log("First 3 workout objects (raw, before filtering):");
   console.log(JSON.stringify(workouts.slice(0, 3), null, 2));
 
-  const merged = mergeDailyData({ resilience, readiness, workouts, activity });
+  const merged = mergeDailyData({ resilience, readiness, workouts, activity, sleep });
 
   const outPath = join(
     dirname(fileURLToPath(import.meta.url)),

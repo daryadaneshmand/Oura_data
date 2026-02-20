@@ -35,7 +35,7 @@ export const CYCLES = [
   },
   {
     id: "cycle_4",
-    label: "Cycle 4 — lifting",
+    label: "Cycle 4 — consistent lifting",
     lifting: true,
     phases: [
       { phase: "follicular", start: "2026-01-19", end: "2026-01-30" },
