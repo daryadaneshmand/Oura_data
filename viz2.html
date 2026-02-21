@@ -253,7 +253,6 @@
       const cycles123Color = "#64748b";
       const cycles123BandColor = "rgba(100, 116, 139, 0.2)";
       const cycle4Color = "#2563eb";
-      const trainingMarkerColor = "#f59e0b";
 
       const svg = d3.select("#viz")
         .append("svg")
@@ -361,7 +360,7 @@
           `Date: ${d.date}`,
           `${phase} day: ${phaseDay ?? "—"}`,
           `Deep sleep: ${d.deepSleepMinutes != null ? d.deepSleepMinutes + " min" : "—"}`,
-          (d.nightAfterStrength || d.isStrengthDay) ? "Night after strength training" : "",
+          d.nightAfterStrength ? "Night after strength training" : "",
         ].filter(Boolean);
         tooltip
           .html(lines.join("<br>"))
@@ -392,12 +391,15 @@
         const aggFollicularLine = useRolling ? rolling3Agg(aggFollicularRaw) : aggFollicularRaw;
         const aggLutealLine = useRolling ? rolling3Agg(aggLutealRaw) : aggLutealRaw;
 
-        const follicular4 = useRolling
+        let follicular4 = useRolling
           ? rolling3(cycle4?.follicularPoints || [], "deepSleepMinutes").filter((d) => d.deepSleepMinutes != null)
           : cycle4?.follicularPoints || [];
-        const luteal4 = useRolling
+        let luteal4 = useRolling
           ? rolling3(cycle4?.lutealPoints || [], "deepSleepMinutes").filter((d) => d.deepSleepMinutes != null)
           : cycle4?.lutealPoints || [];
+
+        follicular4 = follicular4.map((d) => ({ ...d, nightAfterStrength: isNightAfterStrength(d.date, byDate) }));
+        luteal4 = luteal4.map((d) => ({ ...d, nightAfterStrength: isNightAfterStrength(d.date, byDate) }));
 
         const lineF = d3.line()
           .x((d) => xScaleFollicular(d.day))
@@ -503,18 +505,18 @@
               })
               .on("mouseout", hideTooltip);
 
-            follicularPoints.filter((d) => isNightAfterStrength(d.date, byDate)).forEach((d) => {
-              const val = useRolling
-                ? follicular4.find((p) => p.date === d.date)?.deepSleepMinutes ?? d.deepSleepMinutes
-                : d.deepSleepMinutes;
+            follicular4.forEach((d) => {
+              const val = d.deepSleepMinutes;
               if (val == null) return;
-              pathGroup.append("path")
-                .attr("d", `M ${xScaleFollicular(d.follicularDay)} ${yScale(val) - 6} l 0 12`)
-                .attr("stroke", trainingMarkerColor)
-                .attr("stroke-width", 2)
-                .attr("stroke-linecap", "round")
+              pathGroup.append("circle")
+                .attr("cx", xScaleFollicular(d.follicularDay))
+                .attr("cy", yScale(val))
+                .attr("r", 3.5)
+                .attr("fill", d.nightAfterStrength ? cycle4Color : "#fff")
+                .attr("stroke", cycle4Color)
+                .attr("stroke-width", 1.5)
                 .style("cursor", "pointer")
-                .on("mouseover", (e) => showTooltip(e, { ...d, isStrengthDay: false, nightAfterStrength: true }, cycle))
+                .on("mouseover", (e) => showTooltip(e, d, cycle))
                 .on("mouseout", hideTooltip);
             });
           }
@@ -540,18 +542,18 @@
               })
               .on("mouseout", hideTooltip);
 
-            lutealPoints.filter((d) => isNightAfterStrength(d.date, byDate)).forEach((d) => {
-              const val = useRolling
-                ? luteal4.find((p) => p.date === d.date)?.deepSleepMinutes ?? d.deepSleepMinutes
-                : d.deepSleepMinutes;
+            luteal4.forEach((d) => {
+              const val = d.deepSleepMinutes;
               if (val == null) return;
-              pathGroup.append("path")
-                .attr("d", `M ${xScaleLuteal(d.lutealDay)} ${yScale(val) - 6} l 0 12`)
-                .attr("stroke", trainingMarkerColor)
-                .attr("stroke-width", 2)
-                .attr("stroke-linecap", "round")
+              pathGroup.append("circle")
+                .attr("cx", xScaleLuteal(d.lutealDay))
+                .attr("cy", yScale(val))
+                .attr("r", 3.5)
+                .attr("fill", d.nightAfterStrength ? cycle4Color : "#fff")
+                .attr("stroke", cycle4Color)
+                .attr("stroke-width", 1.5)
                 .style("cursor", "pointer")
-                .on("mouseover", (e) => showTooltip(e, { ...d, isStrengthDay: false, nightAfterStrength: true }, cycle))
+                .on("mouseover", (e) => showTooltip(e, d, cycle))
                 .on("mouseout", hideTooltip);
             });
           }
@@ -604,20 +606,33 @@
         .attr("font-weight", 500)
         .text("Cycle 4 — consistent lifting");
       const leg3 = legend.append("g").attr("transform", "translate(0, 48)");
-      leg3.append("line")
-        .attr("x1", 0)
-        .attr("x2", 12)
-        .attr("y1", 0)
-        .attr("y2", 0)
-        .attr("stroke", trainingMarkerColor)
-        .attr("stroke-width", 2)
-        .attr("stroke-linecap", "round");
+      leg3.append("circle")
+        .attr("cx", 6)
+        .attr("cy", 0)
+        .attr("r", 3.5)
+        .attr("fill", cycle4Color)
+        .attr("stroke", cycle4Color)
+        .attr("stroke-width", 1.5);
       leg3.append("text")
         .attr("x", 20)
         .attr("y", 4)
         .attr("fill", "#1a1a1a")
         .attr("font-size", 11)
         .text("Night after strength training");
+      const leg4 = legend.append("g").attr("transform", "translate(0, 72)");
+      leg4.append("circle")
+        .attr("cx", 6)
+        .attr("cy", 0)
+        .attr("r", 3.5)
+        .attr("fill", "#fff")
+        .attr("stroke", cycle4Color)
+        .attr("stroke-width", 1.5);
+      leg4.append("text")
+        .attr("x", 20)
+        .attr("y", 4)
+        .attr("fill", "#1a1a1a")
+        .attr("font-size", 11)
+        .text("Other nights");
 
       d3.select("#viz").append("p")
         .attr("class", "chart-annotation")
