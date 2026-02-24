@@ -1,6 +1,6 @@
-# Cycle Resilience Arc
+# Cycle Data
 
-An interactive D3.js visualization mapping 4 menstrual cycles of Oura Ring biometric data onto animated resilience arc paths. See [SPEC.md](SPEC.md) for full details.
+An interactive D3.js visualization mapping 4 menstrual cycles of Oura Ring biometric data, represented as circular objects. See [SPEC.md](SPEC.md) for full details.
 
 ## Token Setup
 
@@ -12,24 +12,12 @@ An interactive D3.js visualization mapping 4 menstrual cycles of Oura Ring biome
 4. Run `npm run get-token` — your browser will open; authorize the app; the token is saved to `.env` as `OURA_TOKEN`.
 5. Run `npm run fetch` to pull data and generate `data/daily.json`.
 
-## Deploy to Vercel
+##Context and Inspiration
 
-### Option A: Static deploy (simplest)
+This visualization is contextualized against de Zambotti et al., which tracked 26 healthy women of similar age using the Oura ring across four menstrual cycle phases. Their population showed no significant variation in sleep architecture (deep sleep, REM, light sleep) across the cycle, with only marginal sleep efficiency reduction in mid-luteal. Heart rate and skin temperature showed significant biphasic increases in luteal. This project asks whether consistent strength training shifts those baselines — particularly deep sleep and HRV — in a single subject across four cycles.
 
-Your visualizations load pre-built `data/daily.json` — no API calls from the browser. Deploy as a static site:
+de Zambotti, M., Goldstone, A., Colrain, I. M., & Baker, F. C. (2022). Tracking sleep, temperature, heart rate, and daily symptoms across the menstrual cycle with the Oura Ring in healthy women. International Journal of Women's Health, 14, 491–503. https://doi.org/10.2147/IJWH.S341917
 
-1. Push your repo to GitHub (ensure `data/daily.json` is committed).
-2. Go to [vercel.com](https://vercel.com) → **Add New Project** → import your repo.
-3. Leave **Build Command** empty (or remove it). **Output Directory** = `.` or leave default.
-4. Deploy. Your app will be live at `https://your-project.vercel.app`.
+##Objects
 
-To refresh data: run `npm run fetch` locally, commit the updated `data/daily.json`, and push. Vercel will redeploy automatically.
-
-### Option B: Fetch on deploy (fresh data every deploy)
-
-1. In Vercel: Project → **Settings** → **Environment Variables**.
-2. Add `OURA_TOKEN` with your Oura access token (from `npm run get-token`).
-3. Set **Build Command** to `npm run build` (runs the fetch script during deploy).
-4. Deploy. Each deployment will pull fresh data from the Oura API.
-
-**Security:** Never commit `.env`. Your token stays in Vercel's env vars and is not exposed to the browser.
+Each menstrual cycle is represented by a circular object, with angular sweep representing cycle length and a warm/cool color shift at follicular→luteal transition. Deep sleep duration is indicated by the radius of the outer line, and HRV balance is indicated by the thickness of that line, given the established relationship between these variables and recovery. REM sleep is represented by the radius of the inner line, and Oura's sleep efficiency metric (% time spent asleep compared to time spent awake while in bed - sleep efficiency of 85% is a sign of peaceful and uninterrupted sleep) is represented by the thickness of this line. Sleep efficiency reflects sleep continuity and fragmentation, which is the primary mechanism through which luteal phase changes affect REM architecture. The research showed sleep efficiency marginally drops in mid-luteal in the control population — pairing it with REM thickness means both the radius and weight of the inner ring respond to the same underlying disruption signal. 
