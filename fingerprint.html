@@ -19,9 +19,7 @@
     .nav { margin-bottom: 24px; }
     .nav a { color: #2563eb; text-decoration: none; margin-right: 16px; }
     .nav a:hover { text-decoration: underline; }
-    #viz { margin-bottom: 8px; }
-    .day-segment { cursor: pointer; }
-    .day-segment:hover path { filter: brightness(1.15); }
+    #viz { margin-bottom: 8px; text-align: center; }
     #tooltip {
       position: fixed;
       padding: 10px 14px;
@@ -72,16 +70,19 @@
 
     const CELL      = 300;
     const CELL_GAP  = 60;
-    const MARGIN    = { top: 30, right: 30, bottom: 20, left: 30 };
+    const MARGIN    = { top: 75, right: 30, bottom: 20, left: 30 };
     const LABEL_H   = 40;
 
     const OUTER_R   = [68, 125];
-    const INNER_R   = [24, 54];
-    const STROKE    = [1.5, 6.5];
-    const PAD       = 0.008;
+    const INNER_R   = [16, 38];
+    const STROKE    = [1.5, 10];
 
-    const WARM      = ["#F7C948", "#D94F30"];
-    const COOL      = ["#5BA4D9", "#4030A8"];
+    const OUTER_CLR = "#2B4C7E";
+    const INNER_CLR = "#7B52AB";
+    const PHASE_BG  = {
+      follicular: "rgba(235, 170, 50, 0.10)",
+      luteal:     "rgba(90, 155, 190, 0.10)",
+    };
 
     /* ── helpers ─────────────────────────────────────────────── */
 
@@ -128,16 +129,6 @@
         }
       }
 
-      const fc = days.filter(d => d.phase === "follicular").length;
-      const lc = days.filter(d => d.phase === "luteal").length;
-      let fi = 0, li = 0;
-      for (const d of days) {
-        if (d.phase === "follicular") {
-          d.phaseT = fc > 1 ? fi++ / (fc - 1) : 0;
-        } else {
-          d.phaseT = lc > 1 ? li++ / (lc - 1) : 0;
-        }
-      }
       return days;
     }
 
@@ -191,10 +182,8 @@
         .domain(safeDomain(effVals, [70, 100]))
         .range(STROKE).clamp(true);
 
-      const hrvToRaw   = v => v != null ? (v * 50) + 50 : null;
-      const warmInterp = d3.interpolateLab(WARM[0], WARM[1]);
-      const coolInterp = d3.interpolateLab(COOL[0], COOL[1]);
-      const midStroke  = (STROKE[0] + STROKE[1]) / 2;
+      const hrvToRaw  = v => v != null ? (v * 50) + 50 : null;
+      const midStroke = (STROKE[0] + STROKE[1]) / 2;
 
       /* ── SVG ──────────────────────────────────────────────── */
 
@@ -211,6 +200,60 @@
 
       const grid = [[0,0],[1,0],[0,1],[1,1]];
 
+      /* ── legend ──────────────────────────────────────────── */
+
+      const legendG = svg.append("g")
+        .attr("transform", `translate(36, 42)`)
+        .attr("font-size", 10)
+        .attr("fill", "#555");
+
+      let lx = 0;
+      legendG.append("line")
+        .attr("x1", lx).attr("x2", lx + 22)
+        .attr("stroke", OUTER_CLR).attr("stroke-width", 3);
+      legendG.append("text")
+        .attr("x", lx + 28).attr("y", 3.5)
+        .text("Deep sleep (duration = radius)");
+
+      lx = 195;
+      legendG.append("line")
+        .attr("x1", lx).attr("x2", lx + 22)
+        .attr("stroke", INNER_CLR).attr("stroke-width", 3);
+      legendG.append("text")
+        .attr("x", lx + 28).attr("y", 3.5)
+        .text("REM sleep (duration = radius)");
+
+      lx = 375;
+      legendG.append("path")
+        .attr("d", `M${lx},-1 L${lx+22},-4.5 L${lx+22},4.5 L${lx},1 Z`)
+        .attr("fill", "#999");
+      legendG.append("text")
+        .attr("x", lx + 28).attr("y", 3.5)
+        .text("Recovery = thickness");
+
+      lx = 535;
+      legendG.append("rect")
+        .attr("x", lx).attr("y", -6)
+        .attr("width", 12).attr("height", 12).attr("rx", 2)
+        .attr("fill", "rgba(235,170,50,0.3)")
+        .attr("stroke", "rgba(235,170,50,0.6)").attr("stroke-width", 1);
+      legendG.append("rect")
+        .attr("x", lx + 15).attr("y", -6)
+        .attr("width", 12).attr("height", 12).attr("rx", 2)
+        .attr("fill", "rgba(90,155,190,0.3)")
+        .attr("stroke", "rgba(90,155,190,0.6)").attr("stroke-width", 1);
+      legendG.append("text")
+        .attr("x", lx + 33).attr("y", 3.5)
+        .text("Follicular / Luteal");
+
+      /* ── radial area generator ───────────────────────────── */
+
+      const radialArea = d3.areaRadial()
+        .angle(d => d.angle)
+        .innerRadius(d => d.ir)
+        .outerRadius(d => d.or)
+        .curve(d3.curveCatmullRomClosed.alpha(0.5));
+
       /* ── render each cycle ────────────────────────────────── */
 
       cycles.forEach((cyc, ci) => {
@@ -223,71 +266,92 @@
 
         g.append("circle").attr("r", 1.5).attr("fill", "#d4d4d4");
 
+        /* phase background arcs */
+        const bgR   = OUTER_R[1] + STROKE[1] / 2 + 4;
+        const nFoll = cyc.days.filter(d => d.phase === "follicular").length;
+        if (nFoll > 0) {
+          g.append("path")
+            .attr("d", arc({
+              innerRadius: 4, outerRadius: bgR,
+              startAngle: 0, endAngle: nFoll * dayAngle,
+            }))
+            .attr("fill", PHASE_BG.follicular);
+        }
+        if (nFoll < cyc.days.length) {
+          g.append("path")
+            .attr("d", arc({
+              innerRadius: 4, outerRadius: bgR,
+              startAngle: nFoll * dayAngle,
+              endAngle: cyc.days.length * dayAngle,
+            }))
+            .attr("fill", PHASE_BG.luteal);
+        }
+
+        /* continuous radial paths */
+        const outerPts = [];
+        const innerPts = [];
+
         cyc.days.forEach((day, di) => {
-          const sa = di * dayAngle;
-          const ea = sa + dayAngle - PAD;
-          if (ea <= sa) return;
+          const angle = di * dayAngle;
 
-          const color = day.phase === "follicular"
-            ? warmInterp(day.phaseT)
-            : coolInterp(day.phaseT);
-
-          const hasOuter = day.deepSleepMinutes != null;
-          const hasInner = day.remSleepMinutes  != null;
-          if (!hasOuter && !hasInner) return;
-
-          const seg = g.append("g").attr("class", "day-segment");
-
-          if (hasOuter) {
+          if (day.deepSleepMinutes != null) {
             const R  = outerRScale(day.deepSleepMinutes);
             const hr = hrvToRaw(day.hrvBalance);
-            const sw = hr != null ? outerWScale(hr) : midStroke;
-            seg.append("path")
-              .attr("d", arc({
-                innerRadius: Math.max(0, R - sw / 2),
-                outerRadius: R + sw / 2,
-                startAngle:  sa,
-                endAngle:    ea,
-              }))
-              .attr("fill", color);
+            const w  = hr != null ? outerWScale(hr) : midStroke;
+            outerPts.push({ angle, ir: Math.max(0, R - w / 2), or: R + w / 2 });
           }
 
-          if (hasInner) {
-            const r  = innerRScale(day.remSleepMinutes);
-            const sw = day.sleepEfficiency != null
+          if (day.remSleepMinutes != null) {
+            const r = innerRScale(day.remSleepMinutes);
+            const w = day.sleepEfficiency != null
               ? innerWScale(day.sleepEfficiency) : midStroke;
-            seg.append("path")
-              .attr("d", arc({
-                innerRadius: Math.max(0, r - sw / 2),
-                outerRadius: r + sw / 2,
-                startAngle:  sa,
-                endAngle:    ea,
-              }))
-              .attr("fill", color);
+            innerPts.push({ angle, ir: Math.max(0, r - w / 2), or: r + w / 2 });
           }
-
-          seg
-            .on("mouseover", (event) => {
-              const hr = hrvToRaw(day.hrvBalance);
-              tooltip
-                .html([
-                  `<strong>${day.date}</strong> · ${day.phase}`,
-                  `Deep sleep: ${day.deepSleepMinutes != null ? day.deepSleepMinutes + " min" : "—"}`,
-                  `REM sleep: ${day.remSleepMinutes != null ? day.remSleepMinutes + " min" : "—"}`,
-                  `HRV balance: ${hr != null ? hr.toFixed(0) : "—"}`,
-                  `Sleep efficiency: ${day.sleepEfficiency != null ? day.sleepEfficiency + "%" : "—"}`,
-                ].join("<br>"))
-                .style("left", (event.pageX + 14) + "px")
-                .style("top",  (event.pageY + 14) + "px")
-                .classed("visible", true);
-            })
-            .on("mousemove", (event) => {
-              tooltip
-                .style("left", (event.pageX + 14) + "px")
-                .style("top",  (event.pageY + 14) + "px");
-            })
-            .on("mouseout", () => tooltip.classed("visible", false));
         });
+
+        if (outerPts.length > 2) {
+          g.append("path")
+            .attr("d", radialArea(outerPts))
+            .attr("fill", OUTER_CLR);
+        }
+
+        if (innerPts.length > 2) {
+          g.append("path")
+            .attr("d", radialArea(innerPts))
+            .attr("fill", INNER_CLR);
+        }
+
+        /* tooltip hit target */
+        g.append("circle")
+          .attr("r", bgR)
+          .attr("fill", "transparent")
+          .style("cursor", "pointer")
+          .on("mousemove", (event) => {
+            const [mx, my] = d3.pointer(event, g.node());
+            const dist = Math.sqrt(mx * mx + my * my);
+            if (dist < 4) { tooltip.classed("visible", false); return; }
+            let angle = Math.atan2(mx, -my);
+            if (angle < 0) angle += 2 * Math.PI;
+            const di = Math.floor(angle / dayAngle);
+            if (di >= cyc.days.length) {
+              tooltip.classed("visible", false);
+              return;
+            }
+            const day = cyc.days[di];
+            const hr  = hrvToRaw(day.hrvBalance);
+            tooltip
+              .html([
+                `<strong>${day.date}</strong> · ${day.phase}`,
+                `Deep sleep: ${day.deepSleepMinutes != null ? day.deepSleepMinutes + " min" : "—"}`,
+                `REM sleep: ${day.remSleepMinutes != null ? day.remSleepMinutes + " min" : "—"}`,
+                `HRV balance: ${hr != null ? hr.toFixed(0) : "—"}`,
+                `Sleep efficiency: ${day.sleepEfficiency != null ? day.sleepEfficiency + "%" : "—"}`,
+              ].join("<br>"))
+              .style("left", (event.pageX + 14) + "px")
+              .style("top",  (event.pageY + 14) + "px")
+              .classed("visible", true);
+          })
+          .on("mouseout", () => tooltip.classed("visible", false));
 
         /* ── labels ─────────────────────────────────────────── */
 
