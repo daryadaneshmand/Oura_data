@@ -7,6 +7,8 @@
     "hrvBalance": 0.72,
     "steps": 3882,
     "deepSleepMinutes": 81,
+    "remSleepMinutes": 136,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -17,6 +19,8 @@
     "hrvBalance": 0.74,
     "steps": 2569,
     "deepSleepMinutes": 87,
+    "remSleepMinutes": 147,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -27,6 +31,8 @@
     "hrvBalance": 0.8,
     "steps": 1427,
     "deepSleepMinutes": 91,
+    "remSleepMinutes": 134,
+    "sleepEfficiency": 88,
     "isStrengthDay": false
   },
   {
@@ -37,6 +43,8 @@
     "hrvBalance": null,
     "steps": 4147,
     "deepSleepMinutes": 6,
+    "remSleepMinutes": 0,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   },
   {
@@ -47,6 +55,8 @@
     "hrvBalance": null,
     "steps": 3502,
     "deepSleepMinutes": 0,
+    "remSleepMinutes": 0,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   },
   {
@@ -57,6 +67,8 @@
     "hrvBalance": 0.86,
     "steps": 7949,
     "deepSleepMinutes": 99,
+    "remSleepMinutes": 137,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -67,6 +79,8 @@
     "hrvBalance": 0.88,
     "steps": 9889,
     "deepSleepMinutes": 63,
+    "remSleepMinutes": 126,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -77,6 +91,8 @@
     "hrvBalance": 0.84,
     "steps": 7432,
     "deepSleepMinutes": 74,
+    "remSleepMinutes": 146,
+    "sleepEfficiency": 87,
     "isStrengthDay": false
   },
   {
@@ -87,6 +103,8 @@
     "hrvBalance": 0.82,
     "steps": 5884,
     "deepSleepMinutes": 82,
+    "remSleepMinutes": 124,
+    "sleepEfficiency": 90,
     "isStrengthDay": false
   },
   {
@@ -97,6 +115,8 @@
     "hrvBalance": 0.8,
     "steps": 8623,
     "deepSleepMinutes": 85,
+    "remSleepMinutes": 112,
+    "sleepEfficiency": 98,
     "isStrengthDay": false
   },
   {
@@ -107,6 +127,8 @@
     "hrvBalance": 0.76,
     "steps": 5993,
     "deepSleepMinutes": 107,
+    "remSleepMinutes": 120,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -117,6 +139,8 @@
     "hrvBalance": 0.76,
     "steps": 13007,
     "deepSleepMinutes": 82,
+    "remSleepMinutes": 181,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -127,6 +151,8 @@
     "hrvBalance": 0.74,
     "steps": 4937,
     "deepSleepMinutes": 58,
+    "remSleepMinutes": 131,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -137,6 +163,8 @@
     "hrvBalance": 0.72,
     "steps": 3928,
     "deepSleepMinutes": 57,
+    "remSleepMinutes": 116,
+    "sleepEfficiency": 89,
     "isStrengthDay": false
   },
   {
@@ -147,6 +175,8 @@
     "hrvBalance": 0.74,
     "steps": 3169,
     "deepSleepMinutes": 101,
+    "remSleepMinutes": 141,
+    "sleepEfficiency": 96,
     "isStrengthDay": false
   },
   {
@@ -157,6 +187,8 @@
     "hrvBalance": 0.74,
     "steps": 5274,
     "deepSleepMinutes": 58,
+    "remSleepMinutes": 37,
+    "sleepEfficiency": 86,
     "isStrengthDay": false
   },
   {
@@ -167,6 +199,8 @@
     "hrvBalance": 0.64,
     "steps": 2721,
     "deepSleepMinutes": 78,
+    "remSleepMinutes": 123,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -177,6 +211,8 @@
     "hrvBalance": null,
     "steps": 1453,
     "deepSleepMinutes": null,
+    "remSleepMinutes": null,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   },
   {
@@ -187,6 +223,8 @@
     "hrvBalance": 0.48,
     "steps": 5342,
     "deepSleepMinutes": 94,
+    "remSleepMinutes": 131,
+    "sleepEfficiency": 83,
     "isStrengthDay": false
   },
   {
@@ -197,6 +235,8 @@
     "hrvBalance": 0.74,
     "steps": 3546,
     "deepSleepMinutes": 78,
+    "remSleepMinutes": 153,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -207,6 +247,8 @@
     "hrvBalance": 0.52,
     "steps": 6253,
     "deepSleepMinutes": 64,
+    "remSleepMinutes": 128,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -217,6 +259,8 @@
     "hrvBalance": 0.48,
     "steps": 3347,
     "deepSleepMinutes": 93,
+    "remSleepMinutes": 123,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -227,6 +271,8 @@
     "hrvBalance": 0.48,
     "steps": 4580,
     "deepSleepMinutes": 86,
+    "remSleepMinutes": 113,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -237,6 +283,8 @@
     "hrvBalance": null,
     "steps": 234,
     "deepSleepMinutes": null,
+    "remSleepMinutes": null,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   },
   {
@@ -247,6 +295,8 @@
     "hrvBalance": 0.38,
     "steps": 1931,
     "deepSleepMinutes": 95,
+    "remSleepMinutes": 108,
+    "sleepEfficiency": 88,
     "isStrengthDay": false
   },
   {
@@ -257,6 +307,8 @@
     "hrvBalance": 0.54,
     "steps": 8695,
     "deepSleepMinutes": 74,
+    "remSleepMinutes": 124,
+    "sleepEfficiency": 94,
     "isStrengthDay": true
   },
   {
@@ -267,6 +319,8 @@
     "hrvBalance": 0.44,
     "steps": 5847,
     "deepSleepMinutes": 95,
+    "remSleepMinutes": 168,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -277,6 +331,8 @@
     "hrvBalance": 0.44,
     "steps": 7505,
     "deepSleepMinutes": 70,
+    "remSleepMinutes": 47,
+    "sleepEfficiency": 86,
     "isStrengthDay": false
   },
   {
@@ -287,6 +343,8 @@
     "hrvBalance": 0.6,
     "steps": 7695,
     "deepSleepMinutes": 82,
+    "remSleepMinutes": 166,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -297,6 +355,8 @@
     "hrvBalance": 0.52,
     "steps": 5164,
     "deepSleepMinutes": 83,
+    "remSleepMinutes": 124,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -307,6 +367,8 @@
     "hrvBalance": 0.74,
     "steps": 5642,
     "deepSleepMinutes": 81,
+    "remSleepMinutes": 111,
+    "sleepEfficiency": 90,
     "isStrengthDay": false
   },
   {
@@ -317,6 +379,8 @@
     "hrvBalance": 0.72,
     "steps": 6579,
     "deepSleepMinutes": 90,
+    "remSleepMinutes": 106,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -327,6 +391,8 @@
     "hrvBalance": 0.76,
     "steps": 8235,
     "deepSleepMinutes": 86,
+    "remSleepMinutes": 94,
+    "sleepEfficiency": 97,
     "isStrengthDay": false
   },
   {
@@ -337,6 +403,8 @@
     "hrvBalance": 0.78,
     "steps": 5565,
     "deepSleepMinutes": 83,
+    "remSleepMinutes": 54,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   },
   {
@@ -347,6 +415,8 @@
     "hrvBalance": 0.82,
     "steps": 8745,
     "deepSleepMinutes": 66,
+    "remSleepMinutes": 141,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -357,6 +427,8 @@
     "hrvBalance": 0.78,
     "steps": 2971,
     "deepSleepMinutes": 88,
+    "remSleepMinutes": 101,
+    "sleepEfficiency": 90,
     "isStrengthDay": false
   },
   {
@@ -367,6 +439,8 @@
     "hrvBalance": 0.84,
     "steps": 5042,
     "deepSleepMinutes": 94,
+    "remSleepMinutes": 135,
+    "sleepEfficiency": 88,
     "isStrengthDay": false
   },
   {
@@ -377,6 +451,8 @@
     "hrvBalance": 0.66,
     "steps": 1947,
     "deepSleepMinutes": 78,
+    "remSleepMinutes": 114,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -387,6 +463,8 @@
     "hrvBalance": 0.8,
     "steps": 4791,
     "deepSleepMinutes": 77,
+    "remSleepMinutes": 152,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -397,6 +475,8 @@
     "hrvBalance": 0.46,
     "steps": 6466,
     "deepSleepMinutes": 69,
+    "remSleepMinutes": 128,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -407,6 +487,8 @@
     "hrvBalance": 0.58,
     "steps": 3886,
     "deepSleepMinutes": 103,
+    "remSleepMinutes": 179,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -417,6 +499,8 @@
     "hrvBalance": 0.38,
     "steps": 9388,
     "deepSleepMinutes": 46,
+    "remSleepMinutes": 151,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -427,6 +511,8 @@
     "hrvBalance": 0.24,
     "steps": 5526,
     "deepSleepMinutes": 103,
+    "remSleepMinutes": 150,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -437,6 +523,8 @@
     "hrvBalance": 0.26,
     "steps": 2534,
     "deepSleepMinutes": 85,
+    "remSleepMinutes": 129,
+    "sleepEfficiency": 90,
     "isStrengthDay": false
   },
   {
@@ -447,6 +535,8 @@
     "hrvBalance": 0.04,
     "steps": 1147,
     "deepSleepMinutes": 92,
+    "remSleepMinutes": 157,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -457,6 +547,8 @@
     "hrvBalance": 0.12,
     "steps": 3936,
     "deepSleepMinutes": 107,
+    "remSleepMinutes": 160,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -467,6 +559,8 @@
     "hrvBalance": -0.2,
     "steps": 8297,
     "deepSleepMinutes": 80,
+    "remSleepMinutes": 111,
+    "sleepEfficiency": 96,
     "isStrengthDay": false
   },
   {
@@ -477,6 +571,8 @@
     "hrvBalance": 0.04,
     "steps": 4680,
     "deepSleepMinutes": 47,
+    "remSleepMinutes": 115,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -487,6 +583,8 @@
     "hrvBalance": -0.02,
     "steps": 2821,
     "deepSleepMinutes": 104,
+    "remSleepMinutes": 149,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -497,6 +595,8 @@
     "hrvBalance": null,
     "steps": 1867,
     "deepSleepMinutes": null,
+    "remSleepMinutes": null,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   },
   {
@@ -507,6 +607,8 @@
     "hrvBalance": -0.18,
     "steps": 5299,
     "deepSleepMinutes": 82,
+    "remSleepMinutes": 128,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -517,6 +619,8 @@
     "hrvBalance": 0.14,
     "steps": 4778,
     "deepSleepMinutes": 119,
+    "remSleepMinutes": 150,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -527,6 +631,8 @@
     "hrvBalance": -0.04,
     "steps": 5236,
     "deepSleepMinutes": 73,
+    "remSleepMinutes": 123,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -537,6 +643,8 @@
     "hrvBalance": -0.06,
     "steps": 5043,
     "deepSleepMinutes": 58,
+    "remSleepMinutes": 47,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   },
   {
@@ -547,6 +655,8 @@
     "hrvBalance": 0.28,
     "steps": 6911,
     "deepSleepMinutes": 86,
+    "remSleepMinutes": 148,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -557,6 +667,8 @@
     "hrvBalance": 0.26,
     "steps": 8780,
     "deepSleepMinutes": 85,
+    "remSleepMinutes": 76,
+    "sleepEfficiency": 87,
     "isStrengthDay": false
   },
   {
@@ -567,6 +679,8 @@
     "hrvBalance": 0.26,
     "steps": 3195,
     "deepSleepMinutes": 85,
+    "remSleepMinutes": 81,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -577,6 +691,8 @@
     "hrvBalance": 0.48,
     "steps": 6479,
     "deepSleepMinutes": 116,
+    "remSleepMinutes": 139,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -587,6 +703,8 @@
     "hrvBalance": 0.44,
     "steps": 5764,
     "deepSleepMinutes": 78,
+    "remSleepMinutes": 62,
+    "sleepEfficiency": 83,
     "isStrengthDay": false
   },
   {
@@ -597,6 +715,8 @@
     "hrvBalance": 0.62,
     "steps": 7037,
     "deepSleepMinutes": 85,
+    "remSleepMinutes": 138,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -607,6 +727,8 @@
     "hrvBalance": 0.62,
     "steps": 9322,
     "deepSleepMinutes": 94,
+    "remSleepMinutes": 62,
+    "sleepEfficiency": 87,
     "isStrengthDay": false
   },
   {
@@ -617,6 +739,8 @@
     "hrvBalance": 0.76,
     "steps": 9634,
     "deepSleepMinutes": 79,
+    "remSleepMinutes": 144,
+    "sleepEfficiency": 79,
     "isStrengthDay": false
   },
   {
@@ -627,6 +751,8 @@
     "hrvBalance": 0.74,
     "steps": 7688,
     "deepSleepMinutes": 110,
+    "remSleepMinutes": 99,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -637,6 +763,8 @@
     "hrvBalance": 0.7,
     "steps": 11484,
     "deepSleepMinutes": 79,
+    "remSleepMinutes": 129,
+    "sleepEfficiency": 90,
     "isStrengthDay": false
   },
   {
@@ -647,6 +775,8 @@
     "hrvBalance": 0.8,
     "steps": 12219,
     "deepSleepMinutes": 126,
+    "remSleepMinutes": 133,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -657,6 +787,8 @@
     "hrvBalance": 0.7,
     "steps": 6009,
     "deepSleepMinutes": 91,
+    "remSleepMinutes": 132,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -667,6 +799,8 @@
     "hrvBalance": 0.54,
     "steps": 11275,
     "deepSleepMinutes": 81,
+    "remSleepMinutes": 143,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -677,6 +811,8 @@
     "hrvBalance": 0.52,
     "steps": 5663,
     "deepSleepMinutes": 101,
+    "remSleepMinutes": 126,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -687,6 +823,8 @@
     "hrvBalance": 0.24,
     "steps": 4242,
     "deepSleepMinutes": 74,
+    "remSleepMinutes": 69,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -697,6 +835,8 @@
     "hrvBalance": 0.16,
     "steps": 8656,
     "deepSleepMinutes": 94,
+    "remSleepMinutes": 112,
+    "sleepEfficiency": 92,
     "isStrengthDay": true
   },
   {
@@ -707,6 +847,8 @@
     "hrvBalance": 0.08,
     "steps": 5560,
     "deepSleepMinutes": 90,
+    "remSleepMinutes": 130,
+    "sleepEfficiency": 89,
     "isStrengthDay": false
   },
   {
@@ -717,6 +859,8 @@
     "hrvBalance": 0.02,
     "steps": 8635,
     "deepSleepMinutes": 107,
+    "remSleepMinutes": 116,
+    "sleepEfficiency": 93,
     "isStrengthDay": true
   },
   {
@@ -727,6 +871,8 @@
     "hrvBalance": -0.08,
     "steps": 5469,
     "deepSleepMinutes": 72,
+    "remSleepMinutes": 104,
+    "sleepEfficiency": 97,
     "isStrengthDay": true
   },
   {
@@ -737,6 +883,8 @@
     "hrvBalance": 0.14,
     "steps": 11258,
     "deepSleepMinutes": 85,
+    "remSleepMinutes": 170,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -747,6 +895,8 @@
     "hrvBalance": -0.28,
     "steps": 6364,
     "deepSleepMinutes": 74,
+    "remSleepMinutes": 142,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -757,6 +907,8 @@
     "hrvBalance": 0.12,
     "steps": 17003,
     "deepSleepMinutes": 95,
+    "remSleepMinutes": 145,
+    "sleepEfficiency": 90,
     "isStrengthDay": false
   },
   {
@@ -767,6 +919,8 @@
     "hrvBalance": -0.28,
     "steps": 4773,
     "deepSleepMinutes": 87,
+    "remSleepMinutes": 117,
+    "sleepEfficiency": 89,
     "isStrengthDay": false
   },
   {
@@ -777,6 +931,8 @@
     "hrvBalance": -0.14,
     "steps": 3608,
     "deepSleepMinutes": 62,
+    "remSleepMinutes": 141,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -787,6 +943,8 @@
     "hrvBalance": -0.06,
     "steps": 2635,
     "deepSleepMinutes": 70,
+    "remSleepMinutes": 103,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -797,6 +955,8 @@
     "hrvBalance": null,
     "steps": 8801,
     "deepSleepMinutes": null,
+    "remSleepMinutes": null,
+    "sleepEfficiency": null,
     "isStrengthDay": true
   },
   {
@@ -807,6 +967,8 @@
     "hrvBalance": 0,
     "steps": 3602,
     "deepSleepMinutes": 85,
+    "remSleepMinutes": 111,
+    "sleepEfficiency": 92,
     "isStrengthDay": false
   },
   {
@@ -817,6 +979,8 @@
     "hrvBalance": -0.2,
     "steps": 9949,
     "deepSleepMinutes": 59,
+    "remSleepMinutes": 130,
+    "sleepEfficiency": 96,
     "isStrengthDay": false
   },
   {
@@ -827,6 +991,8 @@
     "hrvBalance": 0.28,
     "steps": 10019,
     "deepSleepMinutes": 95,
+    "remSleepMinutes": 164,
+    "sleepEfficiency": 93,
     "isStrengthDay": true
   },
   {
@@ -837,6 +1003,8 @@
     "hrvBalance": -0.14,
     "steps": 8268,
     "deepSleepMinutes": 67,
+    "remSleepMinutes": 111,
+    "sleepEfficiency": 96,
     "isStrengthDay": false
   },
   {
@@ -847,6 +1015,8 @@
     "hrvBalance": 0.38,
     "steps": 8245,
     "deepSleepMinutes": 104,
+    "remSleepMinutes": 122,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -857,6 +1027,8 @@
     "hrvBalance": 0.3,
     "steps": 7999,
     "deepSleepMinutes": 86,
+    "remSleepMinutes": 125,
+    "sleepEfficiency": 91,
     "isStrengthDay": true
   },
   {
@@ -867,6 +1039,8 @@
     "hrvBalance": 0.42,
     "steps": 2626,
     "deepSleepMinutes": 83,
+    "remSleepMinutes": 133,
+    "sleepEfficiency": 95,
     "isStrengthDay": false
   },
   {
@@ -877,6 +1051,8 @@
     "hrvBalance": 0.52,
     "steps": 6334,
     "deepSleepMinutes": 56,
+    "remSleepMinutes": 129,
+    "sleepEfficiency": 94,
     "isStrengthDay": false
   },
   {
@@ -887,6 +1063,8 @@
     "hrvBalance": 0.72,
     "steps": 7308,
     "deepSleepMinutes": 81,
+    "remSleepMinutes": 123,
+    "sleepEfficiency": 89,
     "isStrengthDay": true
   },
   {
@@ -897,6 +1075,8 @@
     "hrvBalance": null,
     "steps": 7755,
     "deepSleepMinutes": null,
+    "remSleepMinutes": null,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   },
   {
@@ -907,6 +1087,8 @@
     "hrvBalance": 0.7,
     "steps": 5540,
     "deepSleepMinutes": 106,
+    "remSleepMinutes": 125,
+    "sleepEfficiency": 96,
     "isStrengthDay": true
   },
   {
@@ -917,6 +1099,8 @@
     "hrvBalance": 0.7,
     "steps": 4957,
     "deepSleepMinutes": 101,
+    "remSleepMinutes": 96,
+    "sleepEfficiency": 90,
     "isStrengthDay": true
   },
   {
@@ -927,6 +1111,8 @@
     "hrvBalance": 0.56,
     "steps": 6435,
     "deepSleepMinutes": 85,
+    "remSleepMinutes": 168,
+    "sleepEfficiency": 94,
     "isStrengthDay": true
   },
   {
@@ -937,6 +1123,8 @@
     "hrvBalance": 0.68,
     "steps": 8993,
     "deepSleepMinutes": 92,
+    "remSleepMinutes": 150,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -947,6 +1135,8 @@
     "hrvBalance": 0.58,
     "steps": 9568,
     "deepSleepMinutes": 106,
+    "remSleepMinutes": 123,
+    "sleepEfficiency": 91,
     "isStrengthDay": true
   },
   {
@@ -957,6 +1147,8 @@
     "hrvBalance": 0.64,
     "steps": 7704,
     "deepSleepMinutes": 87,
+    "remSleepMinutes": 129,
+    "sleepEfficiency": 91,
     "isStrengthDay": true
   },
   {
@@ -967,6 +1159,8 @@
     "hrvBalance": 0.66,
     "steps": 9407,
     "deepSleepMinutes": 87,
+    "remSleepMinutes": 150,
+    "sleepEfficiency": 90,
     "isStrengthDay": false
   },
   {
@@ -977,6 +1171,8 @@
     "hrvBalance": 0.68,
     "steps": 8874,
     "deepSleepMinutes": 78,
+    "remSleepMinutes": 114,
+    "sleepEfficiency": 91,
     "isStrengthDay": true
   },
   {
@@ -987,6 +1183,8 @@
     "hrvBalance": 0.72,
     "steps": 8350,
     "deepSleepMinutes": 54,
+    "remSleepMinutes": 41,
+    "sleepEfficiency": 88,
     "isStrengthDay": false
   },
   {
@@ -997,6 +1195,8 @@
     "hrvBalance": 0.68,
     "steps": 8741,
     "deepSleepMinutes": 89,
+    "remSleepMinutes": 123,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -1007,6 +1207,8 @@
     "hrvBalance": 0.72,
     "steps": 8441,
     "deepSleepMinutes": 96,
+    "remSleepMinutes": 148,
+    "sleepEfficiency": 94,
     "isStrengthDay": true
   },
   {
@@ -1017,6 +1219,8 @@
     "hrvBalance": 0.72,
     "steps": 20950,
     "deepSleepMinutes": 108,
+    "remSleepMinutes": 121,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -1027,6 +1231,8 @@
     "hrvBalance": 0.72,
     "steps": 3641,
     "deepSleepMinutes": 92,
+    "remSleepMinutes": 114,
+    "sleepEfficiency": 91,
     "isStrengthDay": false
   },
   {
@@ -1037,6 +1243,8 @@
     "hrvBalance": 0.72,
     "steps": 11232,
     "deepSleepMinutes": 77,
+    "remSleepMinutes": 133,
+    "sleepEfficiency": 90,
     "isStrengthDay": true
   },
   {
@@ -1047,6 +1255,8 @@
     "hrvBalance": 0.78,
     "steps": 2654,
     "deepSleepMinutes": 63,
+    "remSleepMinutes": 115,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -1057,6 +1267,8 @@
     "hrvBalance": 0.78,
     "steps": 13283,
     "deepSleepMinutes": 111,
+    "remSleepMinutes": 145,
+    "sleepEfficiency": 92,
     "isStrengthDay": true
   },
   {
@@ -1067,6 +1279,8 @@
     "hrvBalance": 0.82,
     "steps": 11611,
     "deepSleepMinutes": 79,
+    "remSleepMinutes": 141,
+    "sleepEfficiency": 93,
     "isStrengthDay": false
   },
   {
@@ -1077,6 +1291,8 @@
     "hrvBalance": 0.84,
     "steps": null,
     "deepSleepMinutes": null,
+    "remSleepMinutes": null,
+    "sleepEfficiency": null,
     "isStrengthDay": false
   }
 ]

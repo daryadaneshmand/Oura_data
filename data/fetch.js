@@ -130,11 +130,31 @@ function remapHrvBalance(val) {
 }
 
 /**
- * Convert deep_sleep_duration (seconds) to minutes. Sleep endpoint returns seconds.
+ * Convert sleep duration (seconds) to minutes. Sleep endpoint returns seconds.
  */
-function toDeepSleepMinutes(val) {
+function toMinutes(val) {
   if (val == null || typeof val !== "number") return null;
   return Math.round(val / 60);
+}
+
+function addDuration(existing, incoming) {
+  if (existing != null && incoming != null) return existing + incoming;
+  return existing ?? incoming;
+}
+
+function defaultDay(day, strengthDates) {
+  return {
+    date: day,
+    readinessScore: null,
+    resilienceScore: null,
+    resilienceLevel: null,
+    hrvBalance: null,
+    steps: null,
+    deepSleepMinutes: null,
+    remSleepMinutes: null,
+    sleepEfficiency: null,
+    isStrengthDay: strengthDates.has(day),
+  };
 }
 
 /**
@@ -149,31 +169,16 @@ function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
     const day = r.day;
     if (!day) continue;
     const level = r.level || "";
-    byDate.set(day, {
-      date: day,
-      readinessScore: null,
-      resilienceScore: RESILIENCE_LEVEL_MAP[level] ?? null,
-      resilienceLevel: level || null,
-      hrvBalance: null,
-      steps: null,
-      deepSleepMinutes: null,
-      isStrengthDay: strengthDates.has(day),
-    });
+    const entry = defaultDay(day, strengthDates);
+    entry.resilienceScore = RESILIENCE_LEVEL_MAP[level] ?? null;
+    entry.resilienceLevel = level || null;
+    byDate.set(day, entry);
   }
 
   for (const r of readiness) {
     const day = r.day;
     if (!day) continue;
-    const existing = byDate.get(day) || {
-      date: day,
-      readinessScore: null,
-      resilienceScore: null,
-      resilienceLevel: null,
-      hrvBalance: null,
-      steps: null,
-      deepSleepMinutes: null,
-      isStrengthDay: strengthDates.has(day),
-    };
+    const existing = byDate.get(day) || defaultDay(day, strengthDates);
     existing.readinessScore = r.score ?? null;
     existing.hrvBalance = remapHrvBalance(r.contributors?.hrv_balance);
     byDate.set(day, existing);
@@ -182,16 +187,7 @@ function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
   for (const a of activity) {
     const day = a.day;
     if (!day) continue;
-    const existing = byDate.get(day) || {
-      date: day,
-      readinessScore: null,
-      resilienceScore: null,
-      resilienceLevel: null,
-      hrvBalance: null,
-      steps: null,
-      deepSleepMinutes: null,
-      isStrengthDay: strengthDates.has(day),
-    };
+    const existing = byDate.get(day) || defaultDay(day, strengthDates);
     existing.steps = a.steps ?? null;
     byDate.set(day, existing);
   }
@@ -199,20 +195,19 @@ function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
   for (const s of sleep || []) {
     const day = s.day;
     if (!day) continue;
-    const existing = byDate.get(day) || {
-      date: day,
-      readinessScore: null,
-      resilienceScore: null,
-      resilienceLevel: null,
-      hrvBalance: null,
-      steps: null,
-      deepSleepMinutes: null,
-      isStrengthDay: strengthDates.has(day),
-    };
-    const mins = toDeepSleepMinutes(s.deep_sleep_duration);
-    existing.deepSleepMinutes = existing.deepSleepMinutes != null && mins != null
-      ? existing.deepSleepMinutes + mins
-      : existing.deepSleepMinutes ?? mins;
+    const existing = byDate.get(day) || defaultDay(day, strengthDates);
+
+    existing.deepSleepMinutes = addDuration(
+      existing.deepSleepMinutes, toMinutes(s.deep_sleep_duration)
+    );
+    existing.remSleepMinutes = addDuration(
+      existing.remSleepMinutes, toMinutes(s.rem_sleep_duration)
+    );
+
+    if (s.type === "long_sleep" && s.efficiency != null) {
+      existing.sleepEfficiency = s.efficiency;
+    }
+
     byDate.set(day, existing);
   }
 
