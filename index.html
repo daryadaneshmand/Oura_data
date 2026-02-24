@@ -8,9 +8,25 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    .nav { margin-bottom: 16px; }
-    .nav a { color: #2563eb; text-decoration: none; margin-right: 16px; }
-    .nav a:hover { text-decoration: underline; }
+    .nav {
+      margin-bottom: 28px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+    .nav a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      padding-bottom: 6px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .nav a:hover { color: #1a1a1a; border-bottom-color: #d4d4d4; }
+    .nav a.active { color: #1a1a1a; font-weight: 600; border-bottom-color: #2563eb; }
     body {
       margin: 0;
       padding: 32px;
@@ -39,9 +55,9 @@
 </head>
 <body>
   <div class="nav">
-    <a href="index.html">HRV Balance</a>
-    <a href="viz2.html">Deep Sleep</a>
     <a href="fingerprint.html">Sleep Fingerprint</a>
+    <a href="viz2.html">Deep Sleep</a>
+    <a href="index.html" class="active">HRV Balance</a>
   </div>
   <div id="viz"></div>
   <div id="tooltip"></div>

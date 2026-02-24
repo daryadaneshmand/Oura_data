@@ -16,9 +16,25 @@
       color: #1a1a1a;
       background: #fcfcfc;
     }
-    .nav { margin-bottom: 24px; }
-    .nav a { color: #2563eb; text-decoration: none; margin-right: 16px; }
-    .nav a:hover { text-decoration: underline; }
+    .nav {
+      margin-bottom: 28px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+    .nav a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      padding-bottom: 6px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .nav a:hover { color: #1a1a1a; border-bottom-color: #d4d4d4; }
+    .nav a.active { color: #1a1a1a; font-weight: 600; border-bottom-color: #2563eb; }
     #viz { margin-bottom: 8px; text-align: center; }
     #tooltip {
       position: fixed;
@@ -39,9 +55,9 @@
 </head>
 <body>
   <div class="nav">
-    <a href="index.html">HRV Balance</a>
+    <a href="fingerprint.html" class="active">Sleep Fingerprint</a>
     <a href="viz2.html">Deep Sleep</a>
-    <a href="fingerprint.html">Sleep Fingerprint</a>
+    <a href="index.html">HRV Balance</a>
   </div>
   <div id="viz"></div>
   <div id="tooltip"></div>
@@ -70,11 +86,11 @@
 
     const CELL      = 300;
     const CELL_GAP  = 60;
-    const MARGIN    = { top: 75, right: 30, bottom: 20, left: 30 };
+    const MARGIN    = { top: 100, right: 30, bottom: 20, left: 30 };
     const LABEL_H   = 40;
 
     const OUTER_R   = [68, 125];
-    const INNER_R   = [16, 38];
+    const INNER_R   = [36, 54];
     const STROKE    = [1.5, 10];
 
     const OUTER_CLR = "#2B4C7E";
@@ -150,7 +166,8 @@
 
       const allDays  = cycles.flatMap(c => c.days);
       const maxLen   = Math.max(...cycles.map(c => c.days.length));
-      const dayAngle = (2 * Math.PI) / maxLen;
+      const dayAngle    = (2 * Math.PI) / maxLen;
+      const ANGLE_OFF   = 3 * Math.PI / 2;
 
       /* ── scales ───────────────────────────────────────────── */
 
@@ -203,48 +220,40 @@
       /* ── legend ──────────────────────────────────────────── */
 
       const legendG = svg.append("g")
-        .attr("transform", `translate(36, 42)`)
-        .attr("font-size", 10)
-        .attr("fill", "#555");
+        .attr("transform", `translate(36, 28)`)
+        .attr("font-size", 11.5)
+        .attr("fill", "#444");
 
-      let lx = 0;
-      legendG.append("line")
-        .attr("x1", lx).attr("x2", lx + 22)
-        .attr("stroke", OUTER_CLR).attr("stroke-width", 3);
-      legendG.append("text")
-        .attr("x", lx + 28).attr("y", 3.5)
-        .text("Deep sleep (duration = radius)");
+      const row0 = legendG.append("g");
+      row0.append("line")
+        .attr("x1", 0).attr("x2", 24)
+        .attr("stroke", OUTER_CLR).attr("stroke-width", 3.5);
+      row0.append("text")
+        .attr("x", 30).attr("y", 4)
+        .text("Deep sleep — radius = duration, thickness = HRV balance");
 
-      lx = 195;
-      legendG.append("line")
-        .attr("x1", lx).attr("x2", lx + 22)
-        .attr("stroke", INNER_CLR).attr("stroke-width", 3);
-      legendG.append("text")
-        .attr("x", lx + 28).attr("y", 3.5)
-        .text("REM sleep (duration = radius)");
+      const row1 = legendG.append("g").attr("transform", "translate(0, 22)");
+      row1.append("line")
+        .attr("x1", 0).attr("x2", 24)
+        .attr("stroke", INNER_CLR).attr("stroke-width", 3.5);
+      row1.append("text")
+        .attr("x", 30).attr("y", 4)
+        .text("REM sleep — radius = duration, thickness = sleep efficiency");
 
-      lx = 375;
-      legendG.append("path")
-        .attr("d", `M${lx},-1 L${lx+22},-4.5 L${lx+22},4.5 L${lx},1 Z`)
-        .attr("fill", "#999");
-      legendG.append("text")
-        .attr("x", lx + 28).attr("y", 3.5)
-        .text("Recovery = thickness");
-
-      lx = 535;
-      legendG.append("rect")
-        .attr("x", lx).attr("y", -6)
+      const row2 = legendG.append("g").attr("transform", "translate(0, 44)");
+      row2.append("rect")
+        .attr("x", 0).attr("y", -6)
         .attr("width", 12).attr("height", 12).attr("rx", 2)
         .attr("fill", "rgba(235,170,50,0.3)")
         .attr("stroke", "rgba(235,170,50,0.6)").attr("stroke-width", 1);
-      legendG.append("rect")
-        .attr("x", lx + 15).attr("y", -6)
+      row2.append("rect")
+        .attr("x", 16).attr("y", -6)
         .attr("width", 12).attr("height", 12).attr("rx", 2)
         .attr("fill", "rgba(90,155,190,0.3)")
         .attr("stroke", "rgba(90,155,190,0.6)").attr("stroke-width", 1);
-      legendG.append("text")
-        .attr("x", lx + 33).attr("y", 3.5)
-        .text("Follicular / Luteal");
+      row2.append("text")
+        .attr("x", 34).attr("y", 4)
+        .text("Follicular / Luteal phase");
 
       /* ── radial area generator ───────────────────────────── */
 
@@ -252,7 +261,7 @@
         .angle(d => d.angle)
         .innerRadius(d => d.ir)
         .outerRadius(d => d.or)
-        .curve(d3.curveCatmullRomClosed.alpha(0.5));
+        .curve(d3.curveCatmullRom.alpha(0.5));
 
       /* ── render each cycle ────────────────────────────────── */
 
@@ -266,6 +275,16 @@
 
         g.append("circle").attr("r", 1.5).attr("fill", "#d4d4d4");
 
+        /* concentric grid lines */
+        [25, 50, 75, 100, 125].forEach(r => {
+          g.append("circle")
+            .attr("r", r)
+            .attr("fill", "none")
+            .attr("stroke", "#ccc")
+            .attr("stroke-width", 0.5)
+            .attr("stroke-dasharray", "2,3");
+        });
+
         /* phase background arcs */
         const bgR   = OUTER_R[1] + STROKE[1] / 2 + 4;
         const nFoll = cyc.days.filter(d => d.phase === "follicular").length;
@@ -273,7 +292,7 @@
           g.append("path")
             .attr("d", arc({
               innerRadius: 4, outerRadius: bgR,
-              startAngle: 0, endAngle: nFoll * dayAngle,
+              startAngle: ANGLE_OFF, endAngle: ANGLE_OFF + nFoll * dayAngle,
             }))
             .attr("fill", PHASE_BG.follicular);
         }
@@ -281,8 +300,8 @@
           g.append("path")
             .attr("d", arc({
               innerRadius: 4, outerRadius: bgR,
-              startAngle: nFoll * dayAngle,
-              endAngle: cyc.days.length * dayAngle,
+              startAngle: ANGLE_OFF + nFoll * dayAngle,
+              endAngle: ANGLE_OFF + cyc.days.length * dayAngle,
             }))
             .attr("fill", PHASE_BG.luteal);
         }
@@ -292,7 +311,7 @@
         const innerPts = [];
 
         cyc.days.forEach((day, di) => {
-          const angle = di * dayAngle;
+          const angle = ANGLE_OFF + (di + 0.5) * dayAngle;
 
           if (day.deepSleepMinutes != null) {
             const R  = outerRScale(day.deepSleepMinutes);
@@ -332,6 +351,7 @@
             if (dist < 4) { tooltip.classed("visible", false); return; }
             let angle = Math.atan2(mx, -my);
             if (angle < 0) angle += 2 * Math.PI;
+            angle = (angle - ANGLE_OFF + 2 * Math.PI) % (2 * Math.PI);
             const di = Math.floor(angle / dayAngle);
             if (di >= cyc.days.length) {
               tooltip.classed("visible", false);
@@ -347,8 +367,8 @@
                 `HRV balance: ${hr != null ? hr.toFixed(0) : "—"}`,
                 `Sleep efficiency: ${day.sleepEfficiency != null ? day.sleepEfficiency + "%" : "—"}`,
               ].join("<br>"))
-              .style("left", (event.pageX + 14) + "px")
-              .style("top",  (event.pageY + 14) + "px")
+              .style("left", (event.clientX + 4) + "px")
+              .style("top",  (event.clientY + 4) + "px")
               .classed("visible", true);
           })
           .on("mouseout", () => tooltip.classed("visible", false));
