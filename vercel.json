@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/viz2", "destination": "/viz2.html" }
+  ]
+}
