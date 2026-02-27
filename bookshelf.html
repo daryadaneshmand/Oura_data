@@ -101,7 +101,8 @@
       z-index: 1;
     }
 
-    .spine:hover {
+    .spine:hover,
+    .spine.pinned {
       transform: translateY(-8px);
       filter: brightness(1.18);
       z-index: 2;
@@ -142,6 +143,39 @@
     .quote-bubble.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .quote-bubble.pinned {
+      pointer-events: auto;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      color: rgba(240, 237, 232, 0.6);
+      font-size: 10px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+    }
+    .copy-btn:hover {
+      color: rgba(240, 237, 232, 0.9);
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .copy-btn svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .quote-bubble .quote-text {
@@ -248,6 +282,53 @@
 
     const shelf = document.getElementById("shelf");
     const bubble = document.getElementById("bubble");
+    const spines = [];
+    var pinnedIndex = null;
+
+    var copyIcon = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+
+    function showBubble(spine, w, pinned) {
+      var copyBtn = pinned
+        ? '<button class="copy-btn" id="copyBtn">' + copyIcon + 'Copy</button>'
+        : '';
+
+      bubble.innerHTML =
+        '<p class="quote-text">\u201c' + w.quote + '\u201d</p>' +
+        '<p class="quote-attr">\u2014 ' + w.fullName + '</p>' +
+        '<p class="quote-nobel">Nobel Prize ' + w.nobelYear + '</p>' +
+        copyBtn;
+
+      bubble.style.left = "0px";
+      bubble.style.top = "0px";
+      bubble.classList.add("visible");
+      bubble.classList.toggle("pinned", pinned);
+
+      var spineRect = spine.getBoundingClientRect();
+      var bRect = bubble.getBoundingClientRect();
+
+      var left = spineRect.left + spineRect.width / 2 - bRect.width / 2;
+      left = Math.max(12, Math.min(left, window.innerWidth - bRect.width - 12));
+
+      var top = spineRect.top - bRect.height - 12;
+      if (top < 8) top = spineRect.bottom + 12;
+
+      bubble.style.left = left + "px";
+      bubble.style.top = top + "px";
+
+      if (pinned) {
+        var btn = document.getElementById("copyBtn");
+        btn.addEventListener("click", function () {
+          navigator.clipboard.writeText(w.quote).then(function () {
+            btn.innerHTML = copyIcon + 'Copied';
+            setTimeout(function () { btn.innerHTML = copyIcon + 'Copy'; }, 1500);
+          });
+        });
+      }
+    }
+
+    function hideBubble() {
+      bubble.classList.remove("visible", "pinned");
+    }
 
     writers.forEach((w, i) => {
       const spine = document.createElement("div");
@@ -261,32 +342,29 @@
       spine.appendChild(text);
 
       shelf.appendChild(spine);
+      spines.push(spine);
 
       spine.addEventListener("mouseenter", function () {
-        bubble.innerHTML =
-          '<p class="quote-text">\u201c' + w.quote + '\u201d</p>' +
-          '<p class="quote-attr">\u2014 ' + w.fullName + '</p>' +
-          '<p class="quote-nobel">Nobel Prize ' + w.nobelYear + '</p>';
-
-        bubble.style.left = "0px";
-        bubble.style.top = "0px";
-        bubble.classList.add("visible");
-
-        var spineRect = spine.getBoundingClientRect();
-        var bRect = bubble.getBoundingClientRect();
-
-        var left = spineRect.left + spineRect.width / 2 - bRect.width / 2;
-        left = Math.max(12, Math.min(left, window.innerWidth - bRect.width - 12));
-
-        var top = spineRect.top - bRect.height - 12;
-        if (top < 8) top = spineRect.bottom + 12;
-
-        bubble.style.left = left + "px";
-        bubble.style.top = top + "px";
+        if (pinnedIndex !== null) return;
+        showBubble(spine, w, false);
       });
 
       spine.addEventListener("mouseleave", function () {
-        bubble.classList.remove("visible");
+        if (pinnedIndex !== null) return;
+        hideBubble();
+      });
+
+      spine.addEventListener("click", function () {
+        if (pinnedIndex === i) {
+          pinnedIndex = null;
+          spine.classList.remove("pinned");
+          hideBubble();
+        } else {
+          if (pinnedIndex !== null) spines[pinnedIndex].classList.remove("pinned");
+          pinnedIndex = i;
+          spine.classList.add("pinned");
+          showBubble(spine, w, true);
+        }
       });
     });
   </script>
